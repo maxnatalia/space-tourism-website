@@ -1,7 +1,39 @@
 import { useQuery } from "@tanstack/react-query";
 
-export interface DestinationsProps {
+export interface DestinationPlanet {
   name: string;
+  images: {
+    png: string;
+    webp: string;
+  };
+  description: string;
+  distance: string;
+  travel: string;
+}
+
+export interface CrewMember {
+  name: string;
+  images: {
+    png: string;
+    webp: string;
+  };
+  role: string;
+  bio: string;
+}
+
+export interface TechnologyItem {
+  name: string;
+  images: {
+    portrait: string;
+    landscape: string;
+  };
+  description: string;
+}
+
+export interface AppData {
+  destinations: DestinationPlanet[];
+  crew: CrewMember[];
+  technology: TechnologyItem[];
 }
 
 export const useFetchData = () => {
@@ -17,7 +49,9 @@ export const useFetchData = () => {
 
   const { data, isLoading, isError } = useQuery(["data"], getData);
 
-  console.log(data);
+  const destinations: DestinationPlanet[] = data?.destinations || [];
+  const crew: CrewMember[] = data?.crew || [];
+  const technology: TechnologyItem[] = data?.technology || [];
 
-  return { data, isError, isLoading };
+  return { destinations, crew, technology, isError, isLoading };
 };
