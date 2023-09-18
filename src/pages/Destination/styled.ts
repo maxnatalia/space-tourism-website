@@ -1,65 +1,68 @@
 import styled from "styled-components";
 
-export const Section = styled.section`
-  padding-top: 200px;
-`;
-
-export const Num = styled.span`
-  color: ${({ theme }) => theme.colors.medium};
-  font-weight: 900;
-  padding-left: 170px;
-`;
-
 export const GridBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   grid-gap: 156px;
-  width: 1038px;
   margin: 44px auto;
-`;
 
-export const Navigator = styled.div`
-  display: flex;
-`;
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+    margin: 66px auto;
+    padding: 0 90px;
+    text-align: center;
+  }
 
-export const NavList = styled.ul`
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  gap: 20px;
-`;
-
-export const NavItem = styled.li`
-  padding: 20px 0;
-  color: ${({ theme }) => theme.colors.secondary};
-  text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2.7px;
-  cursor: pointer;
+  @media (max-width: 767px) {
+    grid-gap: 6px;
+    padding: 0 30px;
+  }
 `;
 
 export const Image = styled.img`
   width: 445px;
   height: 445px;
   align-self: flex-end;
+  justify-self: flex-end;
+  filter: drop-shadow(
+    12px 2px 100px ${({ theme }) => theme.colors.transparentMedium}
+  );
+
+  @media (max-width: 1024px) {
+    width: 300px;
+    height: 300px;
+    justify-self: center;
+  }
+
+  @media (max-width: 767px) {
+    width: 170px;
+    height: 170px;
+  }
 `;
 
-export const ContentWrapper = styled.div``;
-
-export const Description = styled.p`
-  margin: 0;
-  line-height: 2.8;
-  color: ${({ theme }) => theme.colors.secondary};
-  padding-top: 10px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.medium};
+export const ContentWrapper = styled.div`
+  /* width: 100%; */
 `;
+
 export const InfoBox = styled.div`
   display: flex;
   gap: 80px;
+  margin-top: 54px;
   padding-top: 30px;
+  border-top: 1px solid ${({ theme }) => theme.colors.medium};
+
+  @media (max-width: 1024px) {
+    margin-top: 46px;
+    justify-content: center;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 32px;
+    flex-direction: column;
+    gap: 36px;
+  }
 `;
 
 export const InfoColumn = styled.div`
@@ -67,6 +70,7 @@ export const InfoColumn = styled.div`
   flex-direction: column;
   gap: 12px;
 `;
+
 export const InfoText = styled.span`
   color: ${({ theme }) => theme.colors.secondary};
   text-transform: uppercase;
