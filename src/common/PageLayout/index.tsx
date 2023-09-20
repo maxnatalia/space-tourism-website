@@ -1,5 +1,16 @@
 import { HeadingFive } from "../Heading";
-import { Background, Num, Section } from "./styled";
+import {
+  Article,
+  Background,
+  Box,
+  Content,
+  Image,
+  ImageBox,
+  Navigator,
+  Num,
+  Section,
+  TitleWrapper,
+} from "./styled";
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -8,6 +19,16 @@ interface PageLayoutProps {
   bgmobile: string;
   number?: string;
   title?: string;
+  src?: string;
+  alt?: string;
+  navigator?: React.ReactNode;
+  reverseRow?: boolean;
+  reverseCol?: boolean;
+  reverseNavCol?: boolean;
+  reverseNavRow?: boolean;
+  end?: boolean;
+  extraButton?: React.ReactNode;
+  smaller?: boolean;
 }
 
 const PageLayout = ({
@@ -17,17 +38,41 @@ const PageLayout = ({
   number,
   title,
   children,
+  src,
+  alt,
+  navigator,
+  reverseRow,
+  reverseCol,
+  reverseNavCol,
+  reverseNavRow,
+  end,
+  extraButton,
+  smaller,
 }: PageLayoutProps) => {
   return (
     <Background bgdesktop={bgdesktop} bgtablet={bgtablet} bgmobile={bgmobile}>
       <Section>
         {number && title && (
-          <HeadingFive>
-            <Num>{number} </Num>
-            {title}
-          </HeadingFive>
+          <TitleWrapper>
+            <HeadingFive>
+              <Num>{number} </Num>
+              {title}
+            </HeadingFive>
+          </TitleWrapper>
         )}
-        {children}
+        <Box reverseRow={reverseRow} reverseCol={reverseCol}>
+          <Content reverseNavCol={reverseNavCol} reverseNavRow={reverseNavRow}>
+            <Article>{children}</Article>
+            <Navigator>{navigator}</Navigator>
+          </Content>
+          <ImageBox end={end}>
+            {src && alt ? (
+              <Image src={src} alt={alt} smaller={smaller} />
+            ) : (
+              <>{extraButton}</>
+            )}
+          </ImageBox>
+        </Box>
       </Section>
     </Background>
   );
