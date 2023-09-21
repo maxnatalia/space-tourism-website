@@ -12,13 +12,17 @@ const Navigation = () => {
     setIsOpen(prevState => !prevState);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <StyledNav show={isOpen}>
       <Logo />
       <LinksList show={isOpen}>
         {linksData.map(link => (
           <li key={link.name}>
-            <LinkName to={link.to}>
+            <LinkName to={link.to} onClick={handleLinkClick}>
               <LinkNum>{link.num}</LinkNum>
               {link.name}
             </LinkName>
