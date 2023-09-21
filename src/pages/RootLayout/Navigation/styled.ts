@@ -128,6 +128,7 @@ export const MobileView = styled.div`
   display: none;
 
   @media (max-width: 767px) {
+    cursor: pointer;
     display: block;
     padding: 0 20px;
   }
