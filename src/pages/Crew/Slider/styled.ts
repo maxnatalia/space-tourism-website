@@ -5,13 +5,12 @@ interface ActiveProps {
 }
 
 export const StyledSlider = styled.div`
-  /* padding-bottom: 80px; */
   padding-top: 80px;
   display: flex;
   gap: 20px;
 
   @media (max-width: 1024px) {
-    margin-top: 40px;
+    padding-top: 0;
     margin-bottom: 40px;
     justify-content: center;
   }
