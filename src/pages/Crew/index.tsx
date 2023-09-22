@@ -1,8 +1,9 @@
 import { useFetchData } from "../../core/useFetchData";
-import PageLayout from "../../common/PageLayout";
+import { useActiveItem } from "../../core/useActiveItem";
+import BackgroundPage from "../../common/BackgroundPage";
+import SectionLayout from "../../common/SectionLayout";
 import { HeadingFour, HeadingThree } from "../../common/Heading";
 import { Paragraph } from "../../common/Paragraph";
-import useActiveItem from "../useActiveItem";
 import bgdesktop from "./background-crew-desktop.jpg";
 import bgtablet from "./background-crew-tablet.jpg";
 import bgmobile from "./background-crew-mobile.jpg";
@@ -14,40 +15,32 @@ const Crew = () => {
   const activeMember = crew[activeItem];
 
   return (
-    <PageLayout
+    <BackgroundPage
       bgdesktop={bgdesktop}
       bgtablet={bgtablet}
       bgmobile={bgmobile}
-      number={"02"}
-      title={"Meet your crew"}
-      src={activeMember?.images?.png}
-      alt={activeMember?.name}
-      navigator={
-        <Slider
-          handleChangeItem={handleChangeItem}
-          activeItem={activeItem}
-          crew={crew}
-        />
-      }
     >
-      <HeadingFour>{activeMember?.role}</HeadingFour>
-      <HeadingThree>{activeMember?.name}</HeadingThree>
-      <Paragraph>{activeMember?.bio}</Paragraph>
-
-      {/* <GridBox>
-        <ContentWrapper>
-          <HeadingFour>{activeMember?.role}</HeadingFour>
-          <HeadingThree>{activeMember?.name}</HeadingThree>
-          <Paragraph>{activeMember?.bio}</Paragraph>
+      <SectionLayout
+        number={"02"}
+        title={"Meet your crew"}
+        src={activeMember?.images?.png}
+        alt={activeMember?.name}
+        navigator={
           <Slider
             handleChangeItem={handleChangeItem}
             activeItem={activeItem}
             crew={crew}
           />
-        </ContentWrapper>
-        <Image src={activeMember?.images?.png} alt={activeMember?.name} />
-      </GridBox> */}
-    </PageLayout>
+        }
+        mobileReverseCol
+        reverseMobileNavCol
+        mobileImageSize
+      >
+        <HeadingFour>{activeMember?.role}</HeadingFour>
+        <HeadingThree>{activeMember?.name}</HeadingThree>
+        <Paragraph>{activeMember?.bio}</Paragraph>
+      </SectionLayout>
+    </BackgroundPage>
   );
 };
 
