@@ -1,4 +1,4 @@
-import { ActiveItemProps } from "../../useActiveItem";
+import { ActiveItemProps } from "../../../core/useActiveItem";
 import { TechnologyItem } from "../../../core/useFetchData";
 import { NumPoint, StyledSliderNum } from "./styled";
 
