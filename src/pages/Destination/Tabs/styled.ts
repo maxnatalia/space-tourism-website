@@ -1,21 +1,7 @@
 import styled, { css } from "styled-components";
-
 interface ActiveProps {
   active: boolean;
 }
-
-export const Navigator = styled.div`
-  display: flex;
-
-  @media (max-width: 1024px) {
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-
-  @media (max-width: 767px) {
-    margin-bottom: 26px;
-  }
-`;
 
 export const NavList = styled.ul`
   list-style: none;
@@ -23,6 +9,10 @@ export const NavList = styled.ul`
   padding-left: 0;
   display: flex;
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
 `;
 
 export const NavItem = styled.li<ActiveProps>`
