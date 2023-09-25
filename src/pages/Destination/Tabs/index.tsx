@@ -1,35 +1,23 @@
 import { DestinationPlanet } from "../../../core/useFetchData";
-import { NavItem, NavList, Navigator } from "./styled";
-
-interface NavigatorProps {
-  activePlanet: number;
-  setActivePlanet: (index: number) => void;
+import { ActiveItemProps } from "../../../core/useActiveItem";
+import { NavItem, NavList } from "./styled";
+interface TabsProps extends ActiveItemProps {
   destinations: DestinationPlanet[];
 }
 
-const Tabs = ({
-  activePlanet,
-  setActivePlanet,
-  destinations,
-}: NavigatorProps) => {
-  const handleChangePlanet = (index: number) => {
-    setActivePlanet(index);
-  };
-
+const Tabs = ({ activeItem, handleChangeItem, destinations }: TabsProps) => {
   return (
-    <Navigator>
-      <NavList>
-        {destinations.map((planet: DestinationPlanet, index) => (
-          <NavItem
-            active={activePlanet === index}
-            key={index}
-            onClick={() => handleChangePlanet(index)}
-          >
-            {planet.name}
-          </NavItem>
-        ))}
-      </NavList>
-    </Navigator>
+    <NavList>
+      {destinations.map((planet: DestinationPlanet, index) => (
+        <NavItem
+          active={activeItem === index}
+          key={index}
+          onClick={() => handleChangeItem(index)}
+        >
+          {planet.name}
+        </NavItem>
+      ))}
+    </NavList>
   );
 };
 
