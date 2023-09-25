@@ -1,51 +1,5 @@
 import styled from "styled-components";
 
-export const GridBox = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  grid-gap: 156px;
-  margin: 44px auto;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
-    grid-gap: 50px;
-    margin: 66px auto;
-    padding: 0 90px;
-    text-align: center;
-  }
-
-  @media (max-width: 767px) {
-    grid-gap: 6px;
-    padding: 0 30px;
-  }
-`;
-
-export const Image = styled.img`
-  width: 445px;
-  height: 445px;
-  align-self: flex-end;
-  justify-self: flex-end;
-  filter: drop-shadow(
-    12px 2px 100px ${({ theme }) => theme.colors.transparentMedium}
-  );
-
-  @media (max-width: 1024px) {
-    width: 300px;
-    height: 300px;
-    justify-self: center;
-  }
-
-  @media (max-width: 767px) {
-    width: 170px;
-    height: 170px;
-  }
-`;
-
-export const ContentWrapper = styled.div`
-  /* width: 100%; */
-`;
-
 export const InfoBox = styled.div`
   display: flex;
   gap: 80px;
