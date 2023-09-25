@@ -1,62 +1,57 @@
-import { useState } from "react";
 import { useFetchData } from "../../core/useFetchData";
-import PageLayout from "../../common/PageLayout";
+import { useActiveItem } from "../../core/useActiveItem";
+import BackgroundPage from "../../common/BackgroundPage";
+import SectionLayout from "../../common/SectionLayout";
 import { HeadingTwo } from "../../common/Heading";
 import { Paragraph } from "../../common/Paragraph";
 import bgdesktop from "./background-destination-desktop.jpg";
 import bgtablet from "./background-destination-tablet.jpg";
 import bgmobile from "./background-destination-mobile.jpg";
 import Tabs from "./Tabs";
-import {
-  ContentWrapper,
-  GridBox,
-  Image,
-  InfoBox,
-  InfoColumn,
-  InfoData,
-  InfoText,
-} from "./styled";
+import { InfoBox, InfoColumn, InfoData, InfoText } from "./styled";
 
 const Destination = () => {
-  const [activePlanet, setActivePlanet] = useState<number>(0);
+  const { activeItem, handleChangeItem } = useActiveItem();
   const { destinations } = useFetchData();
-
-  const activeDestination = destinations[activePlanet];
+  const activeDestination = destinations[activeItem];
 
   return (
-    <PageLayout
+    <BackgroundPage
       bgdesktop={bgdesktop}
       bgtablet={bgtablet}
       bgmobile={bgmobile}
-      number={"01"}
-      title={"Pick your destination"}
     >
-      <GridBox>
-        <Image
-          src={activeDestination?.images.png}
-          alt={activeDestination?.name}
-        />
-        <ContentWrapper>
+      <SectionLayout
+        number={"01"}
+        title={"Pick your destination"}
+        src={activeDestination?.images.png}
+        alt={activeDestination?.name}
+        smaller
+        navigator={
           <Tabs
             destinations={destinations}
-            activePlanet={activePlanet}
-            setActivePlanet={setActivePlanet}
+            activeItem={activeItem}
+            handleChangeItem={handleChangeItem}
           />
-          <HeadingTwo>{activeDestination?.name}</HeadingTwo>
-          <Paragraph>{activeDestination?.description}</Paragraph>
-          <InfoBox>
-            <InfoColumn>
-              <InfoText>avg. distance</InfoText>
-              <InfoData>{activeDestination?.distance}</InfoData>
-            </InfoColumn>
-            <InfoColumn>
-              <InfoText>est. travel time</InfoText>
-              <InfoData>{activeDestination?.travel}</InfoData>
-            </InfoColumn>
-          </InfoBox>
-        </ContentWrapper>
-      </GridBox>
-    </PageLayout>
+        }
+        reverseRow
+        reverseCol
+        reverseNavCol
+      >
+        <HeadingTwo>{activeDestination?.name}</HeadingTwo>
+        <Paragraph>{activeDestination?.description}</Paragraph>
+        <InfoBox>
+          <InfoColumn>
+            <InfoText>avg. distance</InfoText>
+            <InfoData>{activeDestination?.distance}</InfoData>
+          </InfoColumn>
+          <InfoColumn>
+            <InfoText>est. travel time</InfoText>
+            <InfoData>{activeDestination?.travel}</InfoData>
+          </InfoColumn>
+        </InfoBox>
+      </SectionLayout>
+    </BackgroundPage>
   );
 };
 
