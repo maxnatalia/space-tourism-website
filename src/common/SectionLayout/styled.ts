@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { motion } from "framer-motion";
 
 interface BoxProps {
   reverseRow?: boolean;
@@ -98,7 +99,7 @@ export const Box = styled.div<BoxProps>`
     `}
 `;
 
-export const Content = styled.div<ContentProps>`
+export const Content = motion(styled.div<ContentProps>`
   display: flex;
   flex-direction: column;
 
@@ -129,7 +130,7 @@ export const Content = styled.div<ContentProps>`
         gap: 40px;
       }
     `}
-`;
+`);
 
 export const Article = styled.article`
   flex: 1;
@@ -148,7 +149,7 @@ export const Navigator = styled.div`
   }
 `;
 
-export const ImageBox = styled.div<ImageBoxProps>`
+export const ImageBox = motion(styled.div<ImageBoxProps>`
   flex: 1;
   display: flex;
   justify-content: center;
@@ -165,7 +166,7 @@ export const ImageBox = styled.div<ImageBoxProps>`
         justify-content: center;
       }
     `}
-`;
+`);
 
 export const Image = styled.img<ImageProps>`
   filter: drop-shadow(
