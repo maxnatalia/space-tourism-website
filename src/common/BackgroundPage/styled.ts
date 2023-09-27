@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 interface BackgroundProps {
   bgdesktop: string;
@@ -6,7 +7,7 @@ interface BackgroundProps {
   bgmobile: string;
 }
 
-export const Background = styled.div<BackgroundProps>`
+export const Background = motion(styled.div<BackgroundProps>`
   background-image: url("${props => props.bgdesktop}");
   min-height: 100vh;
   background-position: center;
@@ -22,4 +23,4 @@ export const Background = styled.div<BackgroundProps>`
   @media (max-width: 767px) {
     background-image: url("${props => props.bgmobile}");
   }
-`;
+`);
