@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
 interface ShowProps {
@@ -25,7 +26,7 @@ export const StyledNav = styled.nav<ShowProps>`
   }
 `;
 
-export const LinksList = styled.ul<ShowProps>`
+export const LinksList = motion(styled.ul<ShowProps>`
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -70,7 +71,7 @@ export const LinksList = styled.ul<ShowProps>`
       display: none;
     }
   }
-`;
+`);
 
 export const LinkNum = styled.span`
   font-weight: 900;
@@ -124,7 +125,7 @@ export const LinkName = styled(NavLink)`
   }
 `;
 
-export const MobileView = styled.div`
+export const MobileView = motion(styled.div`
   display: none;
 
   @media (max-width: 767px) {
@@ -132,4 +133,4 @@ export const MobileView = styled.div`
     display: block;
     padding: 0 20px;
   }
-`;
+`);
