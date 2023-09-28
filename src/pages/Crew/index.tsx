@@ -21,6 +21,7 @@ const Crew = () => {
       bgmobile={bgmobile}
     >
       <SectionLayout
+        key={activeItem}
         number={"02"}
         title={"Meet your crew"}
         src={activeMember?.images?.png}
