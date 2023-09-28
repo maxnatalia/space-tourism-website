@@ -22,7 +22,7 @@ interface ImageProps {
   mobileImageSize?: boolean;
 }
 
-export const Section = styled.section`
+export const Section = motion(styled.section`
   padding-top: 200px;
   margin-bottom: 40px;
 
@@ -35,7 +35,7 @@ export const Section = styled.section`
     padding-top: 90px;
     padding-bottom: 2px;
   }
-`;
+`);
 
 export const TitleWrapper = styled.div`
   padding-left: 168px;
@@ -54,7 +54,7 @@ export const Num = styled.span`
   font-weight: 900;
 `;
 
-export const Box = styled.div<BoxProps>`
+export const Box = motion(styled.div<BoxProps>`
   padding-left: 168px;
   min-height: 700px;
   display: flex;
@@ -97,7 +97,7 @@ export const Box = styled.div<BoxProps>`
         gap: 0;
       }
     `}
-`;
+`);
 
 export const Content = motion(styled.div<ContentProps>`
   display: flex;
