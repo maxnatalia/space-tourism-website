@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
+import { motion } from "framer-motion";
 
 interface ActiveProps {
   active: boolean;
 }
 
-export const StyledSlider = styled.div`
+export const StyledSlider = motion(styled.div`
   padding-top: 80px;
   display: flex;
   gap: 20px;
@@ -14,9 +15,9 @@ export const StyledSlider = styled.div`
     margin-bottom: 40px;
     justify-content: center;
   }
-`;
+`);
 
-export const SliderPoint = styled.div<ActiveProps>`
+export const SliderPoint = motion(styled.div<ActiveProps>`
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -33,4 +34,4 @@ export const SliderPoint = styled.div<ActiveProps>`
     css`
       background-color: ${({ theme }) => theme.colors.light};
     `}
-`;
+`);
