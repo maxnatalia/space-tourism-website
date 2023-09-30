@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
+import { motion } from "framer-motion";
 interface ActiveProps {
   active: boolean;
 }
 
-export const NavList = styled.ul`
+export const NavList = motion(styled.ul`
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -13,9 +14,9 @@ export const NavList = styled.ul`
   @media (max-width: 1024px) {
     justify-content: center;
   }
-`;
+`);
 
-export const NavItem = styled.li<ActiveProps>`
+export const NavItem = motion(styled.li<ActiveProps>`
   padding: 20px 0;
   color: ${({ theme }) => theme.colors.secondary};
   text-transform: uppercase;
@@ -40,4 +41,4 @@ export const NavItem = styled.li<ActiveProps>`
       border-bottom: 2px solid ${({ theme }) => theme.colors.third};
       color: ${({ theme }) => theme.colors.third};
     `}
-`;
+`);
