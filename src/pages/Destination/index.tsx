@@ -22,6 +22,7 @@ const Destination = () => {
       bgmobile={bgmobile}
     >
       <SectionLayout
+        key={activeItem}
         number={"01"}
         title={"Pick your destination"}
         src={activeDestination?.images.png}
