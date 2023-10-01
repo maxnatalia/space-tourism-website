@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
+import { motion } from "framer-motion";
 
 interface ActiveProps {
   active: boolean;
 }
 
-export const StyledSliderNum = styled.div`
+export const StyledSliderNum = motion(styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -14,9 +15,9 @@ export const StyledSliderNum = styled.div`
     padding-left: 0;
     gap: 16px;
   }
-`;
+`);
 
-export const NumPoint = styled.div<ActiveProps>`
+export const NumPoint = motion(styled.div<ActiveProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,4 +48,4 @@ export const NumPoint = styled.div<ActiveProps>`
     width: 58px;
     height: 58px;
   }
-`;
+`);
