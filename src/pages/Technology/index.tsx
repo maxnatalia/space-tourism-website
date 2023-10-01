@@ -24,6 +24,7 @@ const Technology = () => {
       bgmobile={bgmobile}
     >
       <SectionLayout
+        key={activeItem}
         number={"03"}
         title={"Space Launch 101"}
         src={
