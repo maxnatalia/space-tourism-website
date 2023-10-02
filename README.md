@@ -10,6 +10,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Here you can see DEMO page - Space Tourism Website](https://maxnatalia.github.io/space-tourism-website).
 
+[My solution - Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-spacetourismwebsite-with-animations-using-react-and-ts-MLm3eYXmKE).
+
 ![Design preview for the Space tourism website coding challenge](./preview.jpg)
 
 ## The challenge
